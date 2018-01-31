@@ -1,0 +1,21 @@
+<html>
+  <head>
+  </head>
+  <body>
+    <form method='POST' action='/users'>
+      <input name='name' placeholder='Put name here' />
+      <input name='foo' placeholder='dont bother' />
+      <button>Save User</button>
+    </form>
+    <ul>
+      {% for user in users %}
+      <li>
+        {{ user.name }}
+        <form method='POST' action='/users/{{user.id}}?_method=DELETE'>
+          <button>Delete</button>
+        </form>
+      </li>
+      {% endfor %}
+    </ul>
+  </body>
+</html>
